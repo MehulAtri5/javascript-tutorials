@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera apna code</title>
+</head>
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li') ;
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').
+        appendChild(li)
+    } // isme pura tree Traverse hora hai, therefore less optimised
+
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // more optimised 
+
+    function addOptiLanguage(langName) {
+        const li = document.createElement('li') ;
+        // li.innerHTML = `${langName}` ;
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("C++")
+
+    // apni practice
+
+    // const parent = document.querySelector('.language')
+    // const crli = document.createElement('li')
+    // crli.innerHTML = 'go' 
+    // const l1 = parent.firstElementChild ;
+    // l1.appendChild(crli) 
+
+    // edit 
+
+    const secondLang = document.querySelector('li:nth-child(2)')
+    // secondLang.innerHTML = 'Mojo'
+    const newli = document.createElement('li') 
+    newli.textContent = "Mojo" 
+    secondLang.replaceWith(newli)
+
+    //edit 
+    const firstElement = document.querySelector('li:first-child')
+    firstElement.outerHTML = '<li>C#</li>'
+
+    //remove 
+    const lastElement = document.querySelector('li:last-child')
+    lastElement.remove() 
+    
+    
+
+</script>
+</html>
